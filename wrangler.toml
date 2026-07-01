@@ -1,0 +1,6 @@
+name = "ar-virtualnum-bot"
+main = "src/index.js"
+compatibility_date = "2026-06-23"
+
+# BOT_TOKEN must be set via: wrangler secret put BOT_TOKEN
+# WEBHOOK_SECRET must be set via: wrangler secret put WEBHOOK_SECRET

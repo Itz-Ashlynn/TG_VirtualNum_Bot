@@ -1,0 +1,22 @@
+{
+  "name": "ar-virtualnum-bot",
+  "version": "2.0.0",
+  "description": "Virtual Number Telegram Bot — Cloudflare Workers Edition",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "setup-webhook": "echo 'After deploy, visit https://<your-worker>.workers.dev/setup to register the webhook'"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "cloudflare-workers",
+    "virtual-number"
+  ],
+  "author": "Ashlynn Repository",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.99.0"
+  }
+}
