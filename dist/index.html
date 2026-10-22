@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Elite Virtual Number Bot — Free Telegram Virtual Numbers & SMS Inbox</title>
+  <meta name="description" content="Get free virtual phone numbers, receive verification SMS and OTPs in real-time, browse dozens of countries, and use directly inside Telegram. Powered by Telegram Serverless V8.">
+  <meta name="theme-color" content="#070a12">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-3" aria-hidden="true"></div>
+  <div class="mesh-grid" aria-hidden="true"></div>
+
+  <!-- Main Container -->
+  <div class="app-layout">
+
+    <!-- Top Navigation / Header -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="brand-avatar-wrap">
+          <img src="logo.png" alt="Elite Temp Number Bot" class="brand-avatar">
+          <span class="online-indicator"></span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Elite VirtualNum</span>
+          <span class="brand-badge hide-mobile">Telegram Serverless V8</span>
+        </div>
+      </div>
+
+      <!-- Uiverse.io-inspired Glider Tabs Navigation -->
+      <nav class="nav-tabs-container hide-tablet-down" aria-label="Page navigation">
+        <div class="glider-tabs">
+          <input type="radio" id="tab-hero" name="nav-tabs" checked>
+          <label class="glider-tab" for="tab-hero" data-target="hero">
+            <span>Explore</span>
+          </label>
+
+          <input type="radio" id="tab-sim" name="nav-tabs">
+          <label class="glider-tab" for="tab-sim" data-target="interactive-simulator">
+            <span>Simulator</span>
+            <span class="tab-notification">Live</span>
+          </label>
+
+          <input type="radio" id="tab-features" name="nav-tabs">
+          <label class="glider-tab" for="tab-features" data-target="features">
+            <span>Features</span>
+          </label>
+
+          <input type="radio" id="tab-commands" name="nav-tabs">
+          <label class="glider-tab" for="tab-commands" data-target="commands">
+            <span>Commands</span>
+          </label>
+
+          <span class="tab-glider" aria-hidden="true"></span>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <select id="langSelect" class="lang-picker" aria-label="Select Language">
+          <option value="en">🇬🇧 EN</option>
+          <option value="ru">🇷🇺 RU</option>
+          <option value="hi">🇮🇳 HI</option>
+          <option value="zh">🇨🇳 ZH</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="ar">🇸🇦 AR</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="de">🇩🇪 DE</option>
+        </select>
+        
+        <!-- Uiverse-inspired Mini Action Button -->
+        <a href="https://t.me/EliteTempnumBot" target="_blank" rel="noopener" class="mini-launch-btn">
+          <svg viewBox="0 0 24 24" class="tg-svg-icon">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+          </svg>
+          <span class="btn-text">Open Bot</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-brand-card">
+        <div class="mascot-container">
+          <img src="logo.png" alt="Elite Mascot Logo" class="hero-mascot-img">
+          <div class="mascot-ring mascot-ring-1"></div>
+          <div class="mascot-ring mascot-ring-2"></div>
+        </div>
+
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span id="heroStatusText">TG Serverless V8 &bull; 50+ Global Pools</span>
+        </div>
+
+        <h1 class="hero-title">
+          Free Virtual Phone Numbers <br class="hide-mobile">
+          <span class="gradient-text-gold">Instant Verification &amp; Live SMS</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Generate temporary virtual phone numbers, receive online verification codes (OTPs), and inspect SMS inboxes in real-time — running natively inside Telegram with zero cloud latency.
+        </p>
+
+        <!-- Uiverse.io-inspired Animated Button (by gharsh11032000) -->
+        <div class="hero-ctas">
+          <a href="https://t.me/EliteTempnumBot" target="_blank" rel="noopener" class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Launch @EliteTempnumBot</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+          </a>
+
+          <a href="#interactive-simulator" class="btn btn-secondary btn-lg">
+            <span>⚡ Test Live Simulator</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Uiverse.io-inspired Glow Card (by themrsami) for Live Telemetry -->
+      <div class="uiverse-glow-card telemetry-card">
+        <div class="glow-backdrop"></div>
+        <div class="card-inner-surface"></div>
+
+        <div class="card-content-wrap">
+          <div class="card-top-bar">
+            <div class="card-title-group">
+              <div class="card-icon-badge">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="card-headline">Live Serverless Telemetry</h3>
+                <span class="card-subheadline">Telegram V8 Isolate Node</span>
+              </div>
+            </div>
+
+            <span class="live-pill">
+              <span class="pulse-dot-emerald"></span>
+              Realtime Active
+            </span>
+          </div>
+
+          <div class="stats-twin-grid">
+            <div class="stat-mini-box">
+              <p class="stat-mini-label">Active Country Pools</p>
+              <p class="stat-mini-num" id="statCountries">52+ Countries</p>
+              <span class="stat-mini-trend">+100% Online</span>
+            </div>
+
+            <div class="stat-mini-box">
+              <p class="stat-mini-label">SMS Delivery Rate</p>
+              <p class="stat-mini-num">99.8% Speed</p>
+              <span class="stat-mini-trend">&lt; 2.5s Latency</span>
+            </div>
+          </div>
+
+          <!-- Animated Activity Bar Equalizer -->
+          <div class="activity-bars-wrap">
+            <div class="activity-bars-header">
+              <span>Traffic &amp; SMS Ingestion Activity</span>
+              <span class="activity-status">Continuous</span>
+            </div>
+            <div class="bars-container">
+              <div class="eq-col"><div class="eq-bar bar-1"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-2"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-3"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-4"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-5"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-6"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-7"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-8"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-9"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-10"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-11"></div></div>
+              <div class="eq-col"><div class="eq-bar bar-12"></div></div>
+            </div>
+          </div>
+
+          <div class="card-footer-bar">
+            <div class="footer-meta">
+              <span>Engineered with <b>SQLite DSL + Bot API 10.3+</b></span>
+            </div>
+            <button class="card-action-btn" id="btnQuickTest">
+              <span>Test Random</span>
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Simulator & Explorer Section -->
+    <section id="interactive-simulator" class="simulator-section">
+      <div class="section-header">
+        <span class="section-tag">Hands-On Web Demo</span>
+        <h2 class="section-title">Interactive Number &amp; SMS Simulator</h2>
+        <p class="section-desc">Test the bot right in your browser. Choose your preferred country pool, copy numbers, and watch incoming OTP SMS messages stream live.</p>
+      </div>
+
+      <div class="simulator-wrapper uiverse-glow-card">
+        <div class="glow-backdrop"></div>
+        <div class="card-inner-surface"></div>
+
+        <div class="card-content-wrap">
+          <!-- Simulator Controls -->
+          <div class="sim-controls">
+            <div class="sim-country-select-wrapper">
+              <label for="countryPicker" class="sim-label">Select Country Pool:</label>
+              <div class="select-container">
+                <select id="countryPicker" class="custom-select">
+                  <option value="united_states">🇺🇸 United States (+1)</option>
+                  <option value="united_kingdom">🇬🇧 United Kingdom (+44)</option>
+                  <option value="france">🇫🇷 France (+33)</option>
+                  <option value="germany">🇩🇪 Germany (+49)</option>
+                  <option value="spain">🇪🇸 Spain (+34)</option>
+                  <option value="russia">🇷🇺 Russia (+7)</option>
+                  <option value="india">🇮🇳 India (+91)</option>
+                  <option value="brazil">🇧🇷 Brazil (+55)</option>
+                  <option value="canada">🇨🇦 Canada (+1)</option>
+                  <option value="netherlands">🇳🇱 Netherlands (+31)</option>
+                  <option value="poland">🇵🇱 Poland (+48)</option>
+                  <option value="sweden">🇸🇪 Sweden (+46)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sim-btn-group">
+              <button id="btnRandomNum" class="btn btn-gold btn-md">
+                <span>🎲 Random Country</span>
+              </button>
+              <button id="btnRenewNum" class="btn btn-secondary btn-md">
+                <span>🔄 Renew Number</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Phone Card Display with Gradient Inset -->
+          <div class="phone-display-card">
+            <div class="phone-header">
+              <div class="phone-country-info">
+                <span id="displayFlag" class="phone-flag">🇺🇸</span>
+                <div class="phone-title-wrap">
+                  <h3 id="displayCountry" class="phone-country-name">United States</h3>
+                  <span class="phone-status-tag">🟢 Active &bull; Receiving SMS Live</span>
+                </div>
+              </div>
+              <div class="phone-actions">
+                <button id="btnCopyPhone" class="btn btn-secondary btn-sm" title="Copy Number">
+                  <span>📋 Copy</span>
+                </button>
+                <button id="btnCheckTG" class="btn btn-primary btn-sm" title="Check Telegram Profile">
+                  <span>🔍 TG Profile</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="phone-number-box">
+              <span class="phone-prefix">+</span>
+              <span id="displayPhone" class="phone-digits">1 202 555 0198</span>
+              <span class="copied-badge" id="copiedBadge">Copied!</span>
+            </div>
+
+            <div class="phone-meta">
+              <span class="meta-item">⏱️ Updated: <b id="displayUpdated">Just now</b></span>
+              <span class="meta-item">🛡️ Protocol: <b>Telegram Serverless</b></span>
+              <span class="meta-item">💬 Pool: <b>Shared Verification</b></span>
+            </div>
+          </div>
+
+          <!-- SMS Inbox Simulator -->
+          <div class="inbox-container">
+            <div class="inbox-header">
+              <div class="inbox-title">
+                <span>📥 Real-Time SMS Inbox</span>
+                <span id="inboxBadge" class="badge-count">3 Messages</span>
+              </div>
+              <button id="btnRefreshInbox" class="btn btn-primary btn-sm">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M23 4v6h-6"></path>
+                  <path d="M1 20v-6h6"></path>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+                <span>Refresh SMS</span>
+              </button>
+            </div>
+
+            <div id="smsFeed" class="sms-feed">
+              <!-- Animated SMS Items injected via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bot Features Grid -->
+    <section id="features" class="features-section">
+      <div class="section-header">
+        <span class="section-tag">Architecture &amp; Features</span>
+        <h2 class="section-title">Built with Cutting-Edge Standards</h2>
+        <p class="section-desc">From native V8 execution to 8-language localization and Bot API 10.3+ button styling.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Native Telegram Serverless</h3>
+            <p class="feature-desc">Runs directly inside Telegram's V8 edge environment (`tgcloud`). No servers, no cold starts, no external hosting bills.</p>
+          </div>
+        </div>
+
+        <div class="feature-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="feature-icon">🌐</div>
+            <h3 class="feature-title">8-Language i18n Engine</h3>
+            <p class="feature-desc">Full translations for EN, RU, HI, ZH, ES, AR, FR, and DE. Users can switch via <code>/lang</code> with persistent SQLite settings.</p>
+          </div>
+        </div>
+
+        <div class="feature-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="feature-icon">🎨</div>
+            <h3 class="feature-title">Bot API 10.3+ Styling</h3>
+            <p class="feature-desc">Supports colored button styles (<code>success</code>, <code>primary</code>, <code>danger</code>) and rich <code>&lt;blockquote expandable&gt;</code> SMS inboxes.</p>
+          </div>
+        </div>
+
+        <div class="feature-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="feature-icon">📥</div>
+            <h3 class="feature-title">Real-Time SMS Inboxes</h3>
+            <p class="feature-desc">Instant online verification message retrieval. Easily read OTPs for WhatsApp, Telegram, Google, Discord, and TikTok.</p>
+          </div>
+        </div>
+
+        <div class="feature-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="feature-icon">💾</div>
+            <h3 class="feature-title">Relational SQLite State</h3>
+            <p class="feature-desc">Powered by <code>sdk/db</code> query builder. Tracks language choices, search histories, and analytics without foreign key overhead.</p>
+          </div>
+        </div>
+
+        <div class="feature-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="feature-icon">📱</div>
+            <h3 class="feature-title">Co-Hosted Mini App</h3>
+            <p class="feature-desc">This responsive landing page is co-hosted at <code>https://app&lt;id&gt;.tgcloud.ai/</code> and opens natively inside the Telegram client.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bot Command Cheatsheet (Fully Responsive Cards Grid) -->
+    <section id="commands" class="commands-section">
+      <div class="section-header">
+        <span class="section-tag">Commands Reference</span>
+        <h2 class="section-title">Quick Bot Commands</h2>
+        <p class="section-desc">Send these commands directly to @EliteTempnumBot in Telegram.</p>
+      </div>
+
+      <div class="commands-responsive-grid">
+        <div class="command-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="command-card-header">
+              <code class="cmd-code">/start</code>
+              <button class="cmd-copy-btn" data-copy="/start">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <p class="command-card-desc">Launches the bot, checks channel membership, and opens main interactive menu.</p>
+          </div>
+        </div>
+
+        <div class="command-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="command-card-header">
+              <code class="cmd-code">/number</code>
+              <button class="cmd-copy-btn" data-copy="/number">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <p class="command-card-desc">Immediately tests and returns an active virtual phone number from the pool.</p>
+          </div>
+        </div>
+
+        <div class="command-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="command-card-header">
+              <code class="cmd-code">/countries</code>
+              <button class="cmd-copy-btn" data-copy="/countries">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <p class="command-card-desc">Opens the paginated global country catalog to pick specific regions.</p>
+          </div>
+        </div>
+
+        <div class="command-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="command-card-header">
+              <code class="cmd-code">/lang [code]</code>
+              <button class="cmd-copy-btn" data-copy="/lang ru">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>/lang ru</span>
+              </button>
+            </div>
+            <p class="command-card-desc">Switches language preference (e.g. <code>/lang ru</code>, <code>/lang hi</code>, <code>/lang en</code>) with persistent SQLite settings.</p>
+          </div>
+        </div>
+
+        <div class="command-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="command-card-header">
+              <code class="cmd-code">/help</code>
+              <button class="cmd-copy-btn" data-copy="/help">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <p class="command-card-desc">Displays detailed usage manual, button explanations, and safety tips.</p>
+          </div>
+        </div>
+
+        <div class="command-card uiverse-glow-card">
+          <div class="glow-backdrop"></div>
+          <div class="card-inner-surface"></div>
+          <div class="card-content-wrap">
+            <div class="command-card-header">
+              <code class="cmd-code">/about</code>
+              <button class="cmd-copy-btn" data-copy="/about">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+            <p class="command-card-desc">Shows software version, Telegram Serverless V8 runtime, and credits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner uiverse-glow-card">
+      <div class="glow-backdrop"></div>
+      <div class="card-inner-surface"></div>
+      <div class="card-content-wrap cta-content">
+        <div class="cta-mascot-badge">
+          <img src="logo.png" alt="Bot Logo Badge" class="cta-logo-img">
+        </div>
+        <h2 class="cta-title">Start Receiving Free SMS Right Now</h2>
+        <p class="cta-desc">Launch @EliteTempnumBot directly inside your Telegram client or join our channel for updates.</p>
+        
+        <div class="cta-buttons">
+          <a href="https://t.me/EliteTempnumBot" target="_blank" rel="noopener" class="animated-button">
+            <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+            <span class="text">Open in Telegram</span>
+            <span class="circle"></span>
+            <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+          </a>
+          <a href="https://t.me/Ashlynn_Repository" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
+            <span>📢 Official Updates Channel</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-left">
+        <img src="logo.png" alt="Logo" class="footer-mini-logo">
+        <span>© 2026 Elite Virtual Number Bot</span>
+        <span class="footer-sep">•</span>
+        <span>Built with ❤️ by <a href="https://t.me/Ashlynn_Repository" target="_blank" rel="noopener">Ashlynn Repository</a></span>
+      </div>
+      <div class="footer-right">
+        <span>Hosted on <a href="https://core.telegram.org/bots/serverless" target="_blank" rel="noopener">Telegram Serverless (tgcloud)</a></span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

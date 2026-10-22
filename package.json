@@ -1,22 +1,23 @@
 {
-  "name": "ar-virtualnum-bot",
-  "version": "2.0.0",
-  "description": "Virtual Number Telegram Bot — Cloudflare Workers Edition",
-  "main": "src/index.js",
+  "name": "elite-virtualnum-bot",
+  "version": "3.0.0",
+  "description": "Elite Virtual Number Telegram Bot — Telegram Serverless Edition",
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
-    "setup-webhook": "echo 'After deploy, visit https://<your-worker>.workers.dev/setup to register the webhook'"
+    "push": "tgcloud push",
+    "migrate": "tgcloud migrate",
+    "status": "tgcloud status",
+    "diff": "tgcloud diff",
+    "webhook": "tgcloud webhook",
+    "run:msg": "tgcloud run handlers/message"
   },
   "keywords": [
     "telegram",
     "bot",
-    "cloudflare-workers",
+    "telegram-serverless",
+    "tgcloud",
     "virtual-number"
   ],
   "author": "Ashlynn Repository",
-  "license": "MIT",
-  "devDependencies": {
-    "wrangler": "^3.99.0"
-  }
+  "license": "MIT"
 }
