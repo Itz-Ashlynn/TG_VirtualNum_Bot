@@ -135,7 +135,7 @@ A responsive, standalone web application that can be used both on desktop/mobile
   - Live virtual number explorer: browse countries and preview active numbers in real time.
   - SMS Inbox Simulator: interactive demo showing how incoming OTP messages look.
   - Features overview, command cheatsheet, and serverless architecture showcase.
-  - "Launch Bot" Telegram deep-link button (`https://t.me/ARTempnumBot`).
+  - "Launch Bot" Telegram deep-link button (`https://t.me/EliteTempnumBot`).
   - Seamless Telegram WebApp integration (`Telegram.WebApp.ready()`, auto-theme matching).
 
 ---
